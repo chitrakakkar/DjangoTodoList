@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>My todo list</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/todo.css' %}">
+    </head>
+
+    <body class="align">
+      <div class="grid">
+      <br />
+      <form class="Add" action="/" method="post">
+        {% csrf_token %}
+
+      <h2> Add a new task to the ToDo list:</h2>
+      <label for="lname">Enter item:</label><br />
+      <input type="text" class="tname" name="name" placeholder="Item name"><br /> <br />
+      <label for="ldesc">Enter description here:</label>
+      <input type="text" class="tdesc"name="description" placeholder="Description">
+      <button type="submit" value=" " class="button"> Add </button>
+      <br />
+      <hr />
+
+      <p><h3>Your TODO Items:</h3></p>
+
+      {% for x in items %}
+      <p>{{ x.task_name }} - {{ x.date_created|date:"D d M Y" }}</p>
+
+      <p>{{ x.task_description }}</p>
+      <input type="hidden" name="id" value="{{ x.id }}">
+      <input type="button" formaction="delete_todo" class="button" value="delete">
+      <hr />
+      {% endfor %}
+
+    </form>
+    </div>
+    </body>
+</html>
