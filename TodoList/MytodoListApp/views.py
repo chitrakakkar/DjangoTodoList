@@ -16,7 +16,7 @@ def index(request):
     # Gets the todos we need from the database
     items = todo.objects.all()
     # render the page with the todos list
-    return render(request, 'todoapp/index.html', {'items': items})
+    return render(request, 'MytodoListApp/index.html', {'items': items})
 
 
 def delete_todo(request):
