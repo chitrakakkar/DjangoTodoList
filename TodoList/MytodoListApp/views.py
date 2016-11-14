@@ -32,5 +32,6 @@ def delete_todo(request):
         todo.objects.get(id=things).delete()
 
     items = todo.objects.all()
-    return HttpResponseRedirect("/")
+    return render(request, 'MytodoListApp/index.html', {'items': items})
+    # return HttpResponseRedirect("/")
     # return render_to_response('MytodoListApp/index.html', {'items': items})

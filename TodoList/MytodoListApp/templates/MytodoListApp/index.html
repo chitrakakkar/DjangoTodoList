@@ -19,7 +19,8 @@
       <label for="ldesc">Enter description here:</label>
       <input type="text" class="tdesc"name="description" placeholder="Description">
       <button type="submit" value=" " class="button"> Add </button>
-      <br />
+
+          <br />
       <hr />
 
       <p><h3>Your TODO Items:</h3></p>
@@ -28,7 +29,6 @@
       <p>{{ x.task_name }} - {{ x.date_created|date:"D d M Y" }}</p>
 
       <p>{{ x.task_description }}</p>
-          <p>{{x.id}}</p>
           <input type="checkbox" name="itemsCheckedForDelete" value= "{{x.id}}">Check here to delete
 
           <!--&lt;!&ndash;<input type="hidden" name="id" value="{{ x.id }}">&ndash;&gt;-->
@@ -36,10 +36,9 @@
       {% endfor %}
            <!--<input type="button" id="{{ x.id }}" formaction="delete_todo({{x.id}})" class="button" value="delete">-->
 
-
-          <!--<form class="Delete" action="/" method="get">-->
-          <input type="submit" formaction="delete_todo/">
-              <label for="lDelete">Delete checked items</label>
+            <button type="submit"formaction="delete_todo/" value="">Delete checked items</button>
+          <!--<input type="submit" formaction="delete_todo/" value="">-->
+              <!--<label for="lDelete">Delete checked items</label>-->
           <!--<button type="" value=" "name="itemsCheckedForDelete" class="button"> Delete checked Items </button>-->
         </form>
       </div>
