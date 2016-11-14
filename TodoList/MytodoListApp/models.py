@@ -7,9 +7,9 @@ from django.utils import timezone
 class todo(models.Model):
     # Task_name will be our task title. Allow only 10 chars.
     # Setting as unique constrain to avoid two tasks with the same name.
-    task_name = models.CharField(max_length=100, unique=True)
-    task_description = models.TextField(max_length=255)
-    date_created = models.DateTimeField(auto_now_add=True)
+    task_name = models.CharField(max_length=100, null=True)
+    task_description = models.TextField(max_length=255, null=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
 
 # Returning the name of the task
     # def __unicode__(self):

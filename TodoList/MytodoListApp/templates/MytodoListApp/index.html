@@ -7,12 +7,12 @@
         <link rel="stylesheet" href="{% static 'css/todo.css' %}">
     </head>
 
+
     <body class="align">
       <div class="grid">
       <br />
       <form class="Add" action="/" method="post">
         {% csrf_token %}
-
       <h2> Add a new task to the ToDo list:</h2>
       <label for="lname">Enter item:</label><br />
       <input type="text" class="tname" name="name" placeholder="Item name"><br /> <br />
@@ -28,12 +28,20 @@
       <p>{{ x.task_name }} - {{ x.date_created|date:"D d M Y" }}</p>
 
       <p>{{ x.task_description }}</p>
-      <input type="hidden" name="id" value="{{ x.id }}">
-      <input type="button" formaction="delete_todo" class="button" value="delete">
-      <hr />
-      {% endfor %}
+          <p>{{x.id}}</p>
+          <input type="checkbox" name="itemsCheckedForDelete" value= "{{x.id}}">Check here to delete
 
-    </form>
-    </div>
+          <!--&lt;!&ndash;<input type="hidden" name="id" value="{{ x.id }}">&ndash;&gt;-->
+          <hr />
+      {% endfor %}
+           <!--<input type="button" id="{{ x.id }}" formaction="delete_todo({{x.id}})" class="button" value="delete">-->
+       </form>
+
+          <form class="Delete" action="/" method="get">
+          <input type="submit" formaction="/">
+              <label for="lDelete">Delete checked items</label>
+          <!--<button type="" value=" "name="itemsCheckedForDelete" class="button"> Delete checked Items </button>-->
+        </form>
+      </div>
     </body>
 </html>
