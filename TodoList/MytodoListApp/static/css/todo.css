@@ -39,8 +39,9 @@ input{
   width: 60%;
 }
 
-.button {
-    background-color: #1bba9a;
+.button
+{
+    background-color: #993333;
     border: none;
     color: #fff;
     padding: 15px 32px;

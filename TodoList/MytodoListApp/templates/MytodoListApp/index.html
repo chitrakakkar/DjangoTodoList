@@ -31,16 +31,13 @@
       <p>{{ x.task_description }}</p>
           <input type="checkbox" name="itemsCheckedForDelete" value= "{{x.id}}">Check here to delete
 
-          <!--&lt;!&ndash;<input type="hidden" name="id" value="{{ x.id }}">&ndash;&gt;-->
           <hr />
       {% endfor %}
-           <!--<input type="button" id="{{ x.id }}" formaction="delete_todo({{x.id}})" class="button" value="delete">-->
 
-            
-          <button type="submit"formaction="delete_todo/" value="">Delete checked items</button>
-          <!--<input type="submit" formaction="delete_todo/" value="">-->
-              <!--<label for="lDelete">Delete checked items</label>-->
-          <!--<button type="" value=" "name="itemsCheckedForDelete" class="button"> Delete checked Items </button>-->
+
+
+          <button type="submit"formaction="delete_todo/" value="" style="background-color: #993333">Delete checked items</button>
+
         </form>
       </div>
     </body>
