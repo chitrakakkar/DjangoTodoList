@@ -10,35 +10,42 @@
 
     <body class="align">
       <div class="grid">
-      <br />
-      <form class="Add" action="/" method="post">
-        {% csrf_token %}
-      <h2> Add a new task to the ToDo list:</h2>
-      <label for="lname">Enter item:</label><br />
-      <input type="text" class="tname" name="name" placeholder="Item name"><br /> <br />
-      <label for="ldesc">Enter description here:</label>
-      <input type="text" class="tdesc"name="description" placeholder="Description">
-      <button type="submit" value=" " class="button"> Add </button>
-
           <br />
-      <hr />
+          <form class="Add" action="/" method="post">
+                {% csrf_token %}
+              <div class="col-sm-4">
+                  <h2> Add a new task</h2>
+                  <label for="lname">Enter item:</label><br />
+                  <input type="text" class="tname" name="name" placeholder="Item name"><br /> <br />
+                  <label for="ldesc">Enter description here:</label>
+                  <input type="text" class="tdesc"name="description" placeholder="Description">
+                  <button type="submit" value=" " class="button"> Add </button>
+                      <br />
+                  <hr />
+              </div>
 
-      <p><h3>Your TODO Items:</h3></p>
+              <div class="col-sm-8">
 
-      {% for x in items %}
-      <p>{{ x.task_name }} - {{ x.date_created|date:"D d M Y" }}</p>
+                  <p><h3>Your TODO List:</h3></p>
 
-      <p>{{ x.task_description }}</p>
-          <input type="checkbox" name="itemsCheckedForDelete" value= "{{x.id}}">Check here to delete
+                  {% for x in items %}
+                  <h3><ins>{{ x.task_name }}</ins></h3>
+                  <p>Created on {{ x.date_created|date:"D d M Y" }}</p>
 
-          <hr />
-      {% endfor %}
+                  <p>{{ x.task_description }}</p>
+
+                  <label>Check here to delete</label>
+                  <input type="checkbox" name="itemsCheckedForDelete" value= "{{x.id}}">
 
 
 
-          <button type="submit"formaction="delete_todo/" value="" style="background-color: #993333">Delete checked items</button>
+                      <hr />
+                  {% endfor %}
 
-        </form>
+
+                  <button type="submit"formaction="delete_todo/" value="" style="background-color: #993333">Delete checked items</button>
+              </div>
+          </form>
       </div>
     </body>
 </html>
