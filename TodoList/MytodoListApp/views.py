@@ -26,11 +26,11 @@ def index(request):
 def delete_todo(request):
     id =[]
     if request.method == 'POST':
-        id =request.POST.getlist("value")
+        id =request.POST.getlist("itemsCheckedForDelete")
         # delete an object and send a confirmation response
     for things in id:
         todo.objects.get(id=things).delete()
 
     items = todo.objects.all()
-    # return HttpResponseRedirect(reverse("MytodoListApp.views.index"))
-    return render_to_response('MytodoListApp/index.html', {'items': items})
+    return HttpResponseRedirect("/")
+    # return render_to_response('MytodoListApp/index.html', {'items': items})
